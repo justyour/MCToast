@@ -86,10 +86,10 @@ extension MCToast {
             window.frame = CGRect.init(x: 0, y: 0, width: kScreenWidth, height: kScreenHeight)
         case .navBarRespond:
             let vc = UIViewController.current()
-            let rectNav = vc.navigationController?.navigationBar.frame
+            let rectNav = vc?.navigationController?.navigationBar.frame
             let maxY = rectNav?.maxY ?? 0
             
-            if vc.navigationController != nil && vc.navigationController?.navigationBar.isHidden == false {
+            if vc?.navigationController != nil && vc?.navigationController?.navigationBar.isHidden == false {
                 window.frame = CGRect.init(x: 0, y: maxY, width: kScreenWidth, height: kScreenHeight - maxY)
             } else {
                 window.frame = CGRect.init(x: 0, y: 0, width: kScreenWidth, height: kScreenHeight)
