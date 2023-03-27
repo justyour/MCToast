@@ -25,6 +25,6 @@ Pod::Spec.new do |s|
      'ToastBundle' => ['MCToast/Assets/**/*']
    }
 
-   s.dependency 'lottie-ios'
+  s.dependency 'lottie-ios', '~> 3.1.6'
 
 end
