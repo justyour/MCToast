@@ -32,6 +32,14 @@ public class MCToast: NSObject {
     internal static var timer: DispatchSource!
     internal static var timerTimes = 0
     
+    internal static var loadingLab: UILabel?
+    
+    public static var loadingText: String = "正在加载中"{
+        didSet{
+            MCToast.loadingLab?.text = loadingText
+        }
+    }
+    
     private override init() { }
     
     internal static func safeAreaInsets() -> (top: CGFloat, bottom: CGFloat) {

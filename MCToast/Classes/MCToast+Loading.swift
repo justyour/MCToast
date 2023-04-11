@@ -180,16 +180,16 @@ extension MCToast {
         mainView.addSubview(activity)
         
         
-        let label = UILabel()
-        label.text = text
-        label.font = MCToastConfig.shared.text.font
-        label.textAlignment = .center
-        label.textColor = UIColor.white
-        label.backgroundColor = UIColor.clear
+        loadingLab = UILabel()
+        loadingLab?.text = text
+        loadingLab?.font = MCToastConfig.shared.text.font
+        loadingLab?.textAlignment = .center
+        loadingLab?.textColor = UIColor.white
+        loadingLab?.backgroundColor = UIColor.clear
         
         
-        label.frame = CGRect(x: 5, y: activity.frame.maxY + 12, width: kToastSize.width - 10, height: 18)
-        mainView.addSubview(label)
+        loadingLab?.frame = CGRect(x: 5, y: activity.frame.maxY + 12, width: kToastSize.width - 10, height: 18)
+        mainView.addSubview(loadingLab!)
         
         MCToast.autoRemove(window: window, duration: duration, callback: callback)
         

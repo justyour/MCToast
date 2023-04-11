@@ -17,6 +17,10 @@ class LoadingViewController: UIViewController {
         view.backgroundColor = UIColor.white
                 
         MCToast.mc_loading(text: "loading")
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2, execute: {
+            MCToast.loadingText = "加载中"
+        })
     }
     
 
