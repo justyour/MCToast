@@ -19,7 +19,7 @@ class LoadingViewController: UIViewController {
         MCToast.mc_loading(text: "loading")
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 2, execute: {
-            MCToast.loadingText = "加载中"
+            MCToast.loadingText = "地址创建中\(10000)/\(10000)"
         })
     }
     

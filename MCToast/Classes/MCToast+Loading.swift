@@ -186,9 +186,10 @@ extension MCToast {
         loadingLab?.textAlignment = .center
         loadingLab?.textColor = UIColor.white
         loadingLab?.backgroundColor = UIColor.clear
+        loadingLab?.numberOfLines = 0
+        loadingLab?.adjustsFontSizeToFitWidth = true
         
-        
-        loadingLab?.frame = CGRect(x: 5, y: activity.frame.maxY + 12, width: kToastSize.width - 10, height: 18)
+        loadingLab?.frame = CGRect(x: 5, y: activity.frame.maxY + 12, width: kToastSize.width - 10, height: 30)
         mainView.addSubview(loadingLab!)
         
         MCToast.autoRemove(window: window, duration: duration, callback: callback)
