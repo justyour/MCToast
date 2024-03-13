@@ -130,6 +130,20 @@ extension MCToast {
             MCToast.loading(animation: animation, animationSpeed: animationSpeed, duration: duration, respond: respond, callback: callback)
         }
     }
+    
+    /// Loading
+    /// - Parameters:
+    ///   - duration: duration description
+    ///   - respond: respond description
+    ///   - callback: callback description
+    public static func mc_loading(duration: CGFloat = 0,
+                                  respond: MCToast.MCToastRespond = MCToastConfig.shared.respond,
+                                  callback: MCToast.MCToastCallback? = nil){
+        
+        DispatchQueue.main.async {
+            MCToast.loading(duration: duration, respond: respond, callback: callback)
+        }
+    }
 }
 
 
@@ -291,6 +305,49 @@ extension MCToast {
         animationView.frame = frame
         animationView.play()
         mainView.addSubview(animationView)
+        
+        MCToast.autoRemove(window: window, duration: duration, callback: callback)
+        
+        return window
+    }
+    
+    /// Loading  只有菊花转
+    /// - Parameters:
+    ///   - animation: json动画类型
+    ///   - animationSpeed: 动画播放速度，越大越快
+    ///   - duration: 持续时间
+    ///   - respond: 交互类型
+    ///   - callback: 隐藏的回调
+    @discardableResult
+    fileprivate static func loading(duration: CGFloat,
+                                    respond: MCToast.MCToastRespond,
+                                    callback: MCToast.MCToastCallback? = nil) -> UIWindow{
+        clearAllToast()
+        
+        let frame = MCToast.getMainFrame()
+
+        let kToastSize = frame.size
+        var kToastImageSize = MCToastConfig.shared.icon.size
+
+        if (kToastImageSize.width > kToastSize.width) || (kToastImageSize.height > kToastSize.height)  {
+            kToastImageSize = CGSize.init(width: 40, height: 40)
+        }
+                
+        let window = MCToast.createWindow(respond: respond, frame: frame)
+        let mainView = MCToast.createMainView(frame: frame)
+    
+        window.addSubview(mainView)
+        windows.append(window)
+        
+        mainView.center = CGPoint.init(x: window.frame.size.width/2, y: kScreenHeight/2 - window.frame.origin.y)
+        
+        let activity = UIActivityIndicatorView(style: UIActivityIndicatorView.Style.whiteLarge)
+        
+        let activityX = (kToastSize.width - kToastImageSize.width) / 2
+        let activityY = ((kToastSize.height - kToastImageSize.height) / 2)
+        activity.frame = CGRect.init(x: activityX, y: activityY, width: kToastImageSize.width, height: kToastImageSize.height)
+        activity.startAnimating()
+        mainView.addSubview(activity)
         
         MCToast.autoRemove(window: window, duration: duration, callback: callback)
         
