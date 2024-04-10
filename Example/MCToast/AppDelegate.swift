@@ -44,7 +44,7 @@ extension AppDelegate {
         // 颜色
         MCToastConfig.shared.background.color = UIColor.black
         // 大小
-        MCToastConfig.shared.background.size = CGSize(width: 120, height: 120)
+        MCToastConfig.shared.background.size = CGSize(width: 80, height: 80)
         
         
         // 3. 配置状态Toast（成功，失败，警告等状态）的Icon
@@ -55,7 +55,7 @@ extension AppDelegate {
 
         
         // 4. 配置文字
-        MCToastConfig.shared.text.font = UIFont.systemFont(ofSize: 15)
+        MCToastConfig.shared.text.font = UIFont.systemFont(ofSize: 12)
         MCToastConfig.shared.text.textColor = UIColor.white
         MCToastConfig.shared.text.offset = (UIScreen.main.bounds.size.height / 2 - 120 - 150)
         

@@ -66,12 +66,13 @@ extension UIResponder {
     ///   - respond: 交互类型
     ///   - callback: 隐藏的回调
     public static func mc_loading(animation: Animation? = nil,
+                               text: String = "正在加载中...",
                                animationSpeed: CGFloat = 1,
                                duration: CGFloat = 0,
                                respond: MCToast.MCToastRespond = MCToastConfig.shared.respond,
                                callback: MCToast.MCToastCallback? = nil) {
         DispatchQueue.main.async {
-            MCToast.loading(animation: animation, animationSpeed: animationSpeed, duration: duration, respond: respond, callback: callback)
+            MCToast.loading(animation: animation, text: text, animationSpeed: animationSpeed, duration: duration, respond: respond, callback: callback)
         }
     }
 }
@@ -122,12 +123,13 @@ extension MCToast {
     ///   - respond: 交互类型
     ///   - callback: 隐藏的回调
     public static func mc_loading(animation: Animation? = nil,
+                               text: String = "正在加载中...",
                                animationSpeed: CGFloat = 1,
                                duration: CGFloat = 0,
                                respond: MCToast.MCToastRespond = MCToastConfig.shared.respond,
                                callback: MCToast.MCToastCallback? = nil) {
         DispatchQueue.main.async {
-            MCToast.loading(animation: animation, animationSpeed: animationSpeed, duration: duration, respond: respond, callback: callback)
+            MCToast.loading(animation: animation, text: text, animationSpeed: animationSpeed, duration: duration, respond: respond, callback: callback)
         }
     }
     
@@ -270,6 +272,7 @@ extension MCToast {
     ///   - callback: 隐藏的回调
     @discardableResult
     fileprivate static func loading(animation: Animation? = nil,
+                               text: String,
                                animationSpeed: CGFloat,
                                duration: CGFloat,
                                respond: MCToast.MCToastRespond,
@@ -277,9 +280,24 @@ extension MCToast {
         
         clearAllToast()
 
-        let frame = MCToast.getMainFrame()
-        let window = MCToast.createWindow(respond: respond, frame: frame)
+        var frame = MCToast.getMainFrame()
         
+        loadingLab = UILabel()
+        loadingLab?.text = text
+        loadingLab?.font = MCToastConfig.shared.text.font
+        loadingLab?.textAlignment = .center
+        loadingLab?.textColor = UIColor.white
+        loadingLab?.backgroundColor = UIColor.clear
+        loadingLab?.numberOfLines = 0
+        loadingLab?.adjustsFontSizeToFitWidth = true
+        let labelWidth = frame.width - 10
+        let size = loadingLab?.sizeThatFits(CGSize(width: labelWidth, height: CGFloat.greatestFiniteMagnitude))
+        
+       
+        
+        frame = CGRect(x: 0, y: 0, width: MCToastConfig.shared.background.size.width, height: 60 + (size?.height ?? 0) + 10)
+        let window = MCToast.createWindow(respond: respond, frame: frame)
+        let kToastSize = frame.size
         let mainView = MCToast.createMainView(frame: frame)
         mainView.center = CGPoint.init(x: window.frame.size.width/2, y: kScreenHeight/2 - window.frame.origin.y)
         window.addSubview(mainView)
@@ -302,9 +320,12 @@ extension MCToast {
         animationView.animationSpeed = animationSpeed
         animationView.contentMode = .scaleAspectFit
         animationView.backgroundBehavior = .pauseAndRestore
-        animationView.frame = frame
+        animationView.frame = CGRect(x: 0, y: 0, width: MCToastConfig.shared.background.size.width, height: 60)
         animationView.play()
         mainView.addSubview(animationView)
+        
+        loadingLab?.frame = CGRect(x: 5, y: 60, width: kToastSize.width - 10, height: size?.height ?? 0)
+        mainView.addSubview(loadingLab!)
         
         MCToast.autoRemove(window: window, duration: duration, callback: callback)
         
