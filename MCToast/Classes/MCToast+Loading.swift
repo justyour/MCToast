@@ -65,7 +65,7 @@ extension UIResponder {
     ///   - duration: 持续时间
     ///   - respond: 交互类型
     ///   - callback: 隐藏的回调
-    public static func mc_loading(animation: Animation? = nil,
+    public static func mc_loading(animation: LottieAnimation? = nil,
                                text: String = "正在加载中...",
                                animationSpeed: CGFloat = 1,
                                duration: CGFloat = 0,
@@ -122,7 +122,7 @@ extension MCToast {
     ///   - duration: 持续时间
     ///   - respond: 交互类型
     ///   - callback: 隐藏的回调
-    public static func mc_loading(animation: Animation? = nil,
+    public static func mc_loading(animation: LottieAnimation? = nil,
                                text: String = "正在加载中...",
                                animationSpeed: CGFloat = 1,
                                duration: CGFloat = 0,
@@ -187,7 +187,7 @@ extension MCToast {
         
         mainView.center = CGPoint.init(x: window.frame.size.width/2, y: kScreenHeight/2 - window.frame.origin.y)
         
-        let activity = UIActivityIndicatorView(style: UIActivityIndicatorView.Style.whiteLarge)
+        let activity = UIActivityIndicatorView(style: UIActivityIndicatorView.Style.large)
         
         let activityX = (kToastSize.width - kToastImageSize.width) / 2
         let activityY = ((kToastSize.height - kToastImageSize.height - 30) / 2)
@@ -271,7 +271,7 @@ extension MCToast {
     ///   - respond: 交互类型
     ///   - callback: 隐藏的回调
     @discardableResult
-    fileprivate static func loading(animation: Animation? = nil,
+    fileprivate static func loading(animation: LottieAnimation? = nil,
                                text: String,
                                animationSpeed: CGFloat,
                                duration: CGFloat,
@@ -303,18 +303,18 @@ extension MCToast {
         window.addSubview(mainView)
         windows.append(window)
         
-        var animationTemp: Animation?
+        var animationTemp: LottieAnimation?
         
         if let _ = animation {
             animationTemp = animation
         } else {
             if let bundle = Bundle.getBundleWithName("ToastBundle", inPod: "MCToast"),
                 let path = bundle.path(forResource: "waiting", ofType: "json") {
-                animationTemp = Animation.filepath(path, animationCache: nil)
+                animationTemp = LottieAnimation.filepath(path, animationCache: nil)
             }
         }
         
-        let animationView = AnimationView()
+        let animationView = LottieAnimationView()
         animationView.animation = animationTemp
         animationView.loopMode = .loop
         animationView.animationSpeed = animationSpeed
@@ -362,7 +362,7 @@ extension MCToast {
         
         mainView.center = CGPoint.init(x: window.frame.size.width/2, y: kScreenHeight/2 - window.frame.origin.y)
         
-        let activity = UIActivityIndicatorView(style: UIActivityIndicatorView.Style.whiteLarge)
+        let activity = UIActivityIndicatorView(style: UIActivityIndicatorView.Style.large)
         
         let activityX = (kToastSize.width - kToastImageSize.width) / 2
         let activityY = ((kToastSize.height - kToastImageSize.height) / 2)

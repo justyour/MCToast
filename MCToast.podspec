@@ -8,14 +8,14 @@
 
 Pod::Spec.new do |s|
   s.name             = 'MCToast'
-  s.version          = '0.1.0'
+  s.version          = '0.1.1'
   s.summary          = 'Swift版本的HUD，支持多种自定义方案。使用方便。'
   s.homepage         = 'https://github.com/mancongiOS/'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'MC' => '562863544@qq.com' }
  
   s.source           = { :git => 'https://github.com/mancongiOS/MCToast.git', :tag => s.version.to_s }
-  s.ios.deployment_target = '11.0'
+  s.ios.deployment_target = '13.0'
  
   s.swift_version = '5.0'
   
@@ -25,6 +25,6 @@ Pod::Spec.new do |s|
      'ToastBundle' => ['MCToast/Assets/**/*']
    }
 
-  s.dependency 'lottie-ios', '~> 3.1.6'
+  s.dependency 'lottie-ios', '~> 4.4.3'
 
 end

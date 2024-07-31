@@ -15,7 +15,7 @@
     "tag": "0.1.1"
   },
   "platforms": {
-    "ios": "9.0"
+    "ios": "13.0"
   },
   "swift_versions": "5.0",
   "source_files": "MCToast/Classes/**/*",
@@ -26,7 +26,7 @@
   },
   "dependencies": {
     "lottie-ios": [
-
+      "~> 4.4.3"
     ]
   },
   "swift_version": "5.0"
