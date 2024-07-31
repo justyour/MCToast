@@ -10,11 +10,11 @@ Pod::Spec.new do |s|
   s.name             = 'MCToast'
   s.version          = '0.1.2'
   s.summary          = 'Swift版本的HUD，支持多种自定义方案。使用方便。'
-  s.homepage         = 'https://github.com/mancongiOS/'
+  s.homepage         = 'https://github.com/justyour/'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
-  s.author           = { 'MC' => '562863544@qq.com' }
+  s.author           = { 'justyour' => 'c_henbing@163.com' }
  
-  s.source           = { :git => 'https://github.com/mancongiOS/MCToast.git', :tag => s.version.to_s }
+  s.source           = { :git => 'https://github.com/justyour/MCToast.git', :tag => s.version.to_s }
   s.ios.deployment_target = '13.0'
  
   s.swift_version = '5.0'
