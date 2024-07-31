@@ -1,18 +1,18 @@
 {
   "name": "MCToast",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "summary": "Swift版本的HUD，支持多种自定义方案。使用方便。",
-  "homepage": "https://github.com/mancongiOS/",
+  "homepage": "https://github.com/justyour/",
   "license": {
     "type": "MIT",
     "file": "LICENSE"
   },
   "authors": {
-    "MC": "562863544@qq.com"
+    "justyour": "c_henbing@163.com"
   },
   "source": {
-    "git": "https://github.com/mancongiOS/MCToast.git",
-    "tag": "0.1.1"
+    "git": "https://github.com/justyour/MCToast.git",
+    "tag": "0.1.2"
   },
   "platforms": {
     "ios": "13.0"
@@ -26,7 +26,7 @@
   },
   "dependencies": {
     "lottie-ios": [
-      "~> 4.4.3"
+      "~> 4.5.0"
     ]
   },
   "swift_version": "5.0"

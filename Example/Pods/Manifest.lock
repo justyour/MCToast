@@ -1,7 +1,7 @@
 PODS:
-  - lottie-ios (4.4.3)
-  - MCToast (0.1.1):
-    - lottie-ios (~> 4.4.3)
+  - lottie-ios (4.5.0)
+  - MCToast (0.1.2):
+    - lottie-ios (~> 4.5.0)
 
 DEPENDENCIES:
   - MCToast (from `../`)
@@ -15,8 +15,8 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  lottie-ios: fcb5e73e17ba4c983140b7d21095c834b3087418
-  MCToast: 52f7d4099658a398a0721d388a397fe08a01d33b
+  lottie-ios: a881093fab623c467d3bce374367755c272bdd59
+  MCToast: c7fbfafba4ed98e3f59bfb1cd113ac0cebdb96d6
 
 PODFILE CHECKSUM: 6b471a57ece1f5dbde73efe2550422ed5f033e1f
 
