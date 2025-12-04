@@ -5,6 +5,8 @@
 //  Created by Mccc on 2020/6/24.
 //
 
+import UIKit
+
 
 extension MCToast {
     /// Toast类型

@@ -20,6 +20,7 @@
  */
 
 import Lottie
+import UIKit
 
 extension UIResponder {
     
@@ -32,8 +33,9 @@ extension UIResponder {
     ///   - callback: 隐藏回调
     public func mc_loading(text: String = "正在加载中",
                            duration: CGFloat = 0,
-                           respond: MCToast.MCToastRespond = MCToastConfig.shared.respond,
+                           respond: MCToast.MCToastRespond? = nil,
                            callback: MCToast.MCToastCallback? = nil) {
+        let respond = MCToastConfig.shared.respond
         DispatchQueue.main.async {
             MCToast.loading(text: text, duration: duration, respond: respond, callback: callback)
         }
@@ -49,8 +51,9 @@ extension UIResponder {
     public func mc_loading(imageNames: [UIImage?],
                            animationSpeed: CGFloat = 0.1,
                            duration: CGFloat = 0,
-                           respond: MCToast.MCToastRespond = MCToastConfig.shared.respond,
+                           respond: MCToast.MCToastRespond? = nil,
                            callback: MCToast.MCToastCallback? = nil) {
+        let respond = MCToastConfig.shared.respond
         DispatchQueue.main.async {
             MCToast.loading(imageNames: imageNames, animationSpeed: animationSpeed, duration: duration, respond: respond, callback: callback)
         }
@@ -69,14 +72,14 @@ extension UIResponder {
                                text: String = "正在加载中...",
                                animationSpeed: CGFloat = 1,
                                duration: CGFloat = 0,
-                               respond: MCToast.MCToastRespond = MCToastConfig.shared.respond,
+                                  respond: MCToast.MCToastRespond? = nil,
                                callback: MCToast.MCToastCallback? = nil) {
+        let respond = MCToastConfig.shared.respond
         DispatchQueue.main.async {
             MCToast.loading(animation: animation, text: text, animationSpeed: animationSpeed, duration: duration, respond: respond, callback: callback)
         }
     }
 }
-
 
 extension MCToast {
     
@@ -88,8 +91,9 @@ extension MCToast {
     ///   - font: 字体大小
     public static func mc_loading(text: String = "正在加载中",
                                   duration: CGFloat = 0,
-                                  respond: MCToast.MCToastRespond = MCToastConfig.shared.respond,
+                                  respond: MCToast.MCToastRespond? = nil,
                                   callback: MCToast.MCToastCallback? = nil) {
+        let respond = MCToastConfig.shared.respond
         DispatchQueue.main.async {
             MCToast.loading(text: text, duration: duration, respond: respond, callback: callback)
         }
@@ -105,8 +109,9 @@ extension MCToast {
     public static func mc_loading(imageNames: [UIImage?],
                                   animationSpeed: CGFloat = 0.1,
                                   duration: CGFloat = 0,
-                                  respond: MCToast.MCToastRespond = MCToastConfig.shared.respond,
+                                  respond: MCToast.MCToastRespond? = nil,
                                   callback: MCToast.MCToastCallback? = nil) {
+        let respond = MCToastConfig.shared.respond
         DispatchQueue.main.async {
             MCToast.loading(imageNames: imageNames, animationSpeed: animationSpeed, duration: duration, respond: respond, callback: callback)
         }
@@ -126,8 +131,9 @@ extension MCToast {
                                text: String = "正在加载中...",
                                animationSpeed: CGFloat = 1,
                                duration: CGFloat = 0,
-                               respond: MCToast.MCToastRespond = MCToastConfig.shared.respond,
+                                respond: MCToast.MCToastRespond? = nil,
                                callback: MCToast.MCToastCallback? = nil) {
+        let respond = MCToastConfig.shared.respond
         DispatchQueue.main.async {
             MCToast.loading(animation: animation, text: text, animationSpeed: animationSpeed, duration: duration, respond: respond, callback: callback)
         }
@@ -139,9 +145,9 @@ extension MCToast {
     ///   - respond: respond description
     ///   - callback: callback description
     public static func mc_loading(duration: CGFloat = 0,
-                                  respond: MCToast.MCToastRespond = MCToastConfig.shared.respond,
+                                  respond: MCToast.MCToastRespond? = nil,
                                   callback: MCToast.MCToastCallback? = nil){
-        
+        let respond = MCToastConfig.shared.respond
         DispatchQueue.main.async {
             MCToast.loading(duration: duration, respond: respond, callback: callback)
         }

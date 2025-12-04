@@ -11,7 +11,6 @@ import UIKit
 
 
 
-
 public class MCToastConfig: NSObject {
     public static let shared = MCToastConfig()
     

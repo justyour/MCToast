@@ -19,6 +19,7 @@ internal let sn_topBar: Int = 1001
 
 
 internal let kScreenWidth = UIScreen.main.bounds.size.width
+
 internal let kScreenHeight = UIScreen.main.bounds.size.height
 
 
