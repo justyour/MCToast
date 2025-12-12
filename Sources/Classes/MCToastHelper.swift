@@ -43,6 +43,9 @@ import UIKit
         _ bundleName: String,
         inPod podName: String) -> Bundle? {
         
+#if SWIFT_PACKAGE
+            return Bundle.module
+#else
         
         var associateBundleURL = Bundle.main.url(forResource: "Frameworks", withExtension: nil)
         associateBundleURL = associateBundleURL?.appendingPathComponent(podName)
@@ -59,6 +62,7 @@ import UIKit
         let bundle = Bundle.init(url: associateBundleURL!)
     
         return bundle
+#endif
     }
 }
 
